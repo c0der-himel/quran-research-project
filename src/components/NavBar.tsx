@@ -26,7 +26,7 @@ export function NavBar() {
 
   return (
     <Navbar
-      isBordered={false}
+      isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
@@ -46,7 +46,7 @@ export function NavBar() {
       </NavbarContent>
 
       <NavbarContent
-        className="hidden sm:flex gap-4"
+        className="hidden gap-4 sm:flex"
         justify="center"
       >
         {menuItems.map((item, index) => (

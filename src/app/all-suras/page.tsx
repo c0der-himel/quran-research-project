@@ -1,4 +1,5 @@
 import { ListOfAllSurasResponse } from '@/types';
+import { Card } from '@nextui-org/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -33,27 +34,33 @@ export default async function ListOfAllSuras() {
               key={index}
               className="w-full p-2 lg:w-1/3 md:w-1/2"
             >
-              <div className="flex items-center h-full p-4 border border-gray-200 rounded-lg shadow">
-                <Image
-                  alt="logo"
-                  className="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full"
-                  src={`${
-                    chapter?.revelation === 'Mecca'
-                      ? '/img/mecca.png'
-                      : '/img/madina.png'
-                  }`}
-                  width={64}
-                  height={64}
-                />
-                <div className="flex-grow">
-                  <h2 className="text-3xl text-gray-600">
-                    {chapter?.arabicname}
-                  </h2>
-                  <p className="text-lg font-medium text-gray-600">
-                    {chapter?.englishname}
-                  </p>
+              <Card
+                isPressable
+                shadow="sm"
+                className="w-full h-full p-5"
+              >
+                <div className="flex">
+                  <Image
+                    alt="logo"
+                    className="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full"
+                    src={`${
+                      chapter?.revelation === 'Mecca'
+                        ? '/img/mecca.png'
+                        : '/img/madina.png'
+                    }`}
+                    width={64}
+                    height={64}
+                  />
+                  <div className="flex-grow">
+                    <h2 className="text-3xl text-gray-600">
+                      {chapter?.arabicname}
+                    </h2>
+                    <p className="text-lg font-medium text-gray-600">
+                      {chapter?.englishname}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Card>
             </Link>
           ))}
         </div>
