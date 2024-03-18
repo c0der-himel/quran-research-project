@@ -1,100 +1,42 @@
-'use client';
-
-import {
-  Button,
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle,
-} from '@nextui-org/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
 
 export function NavBar() {
-  const pathname = usePathname();
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-
-  const menuItems = [
-    { label: 'Home', link: '/' },
-    { label: 'All Suras', link: '/all-suras' },
-  ];
-
   return (
-    <Navbar
-      isBordered
-      isMenuOpen={isMenuOpen}
-      onMenuOpenChange={setIsMenuOpen}
-    >
-      <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-          className="sm:hidden"
-        />
-        <NavbarBrand>
+    <header className="text-gray-600 body-font">
+      <div className="container flex flex-col flex-wrap items-center p-5 mx-auto md:flex-row">
+        <Link
+          href="/"
+          className="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0"
+        >
           <Image
             src="/img/logo.png"
             alt="logo"
             width={50}
             height={50}
           />
-        </NavbarBrand>
-      </NavbarContent>
-
-      <NavbarContent
-        className="hidden gap-4 sm:flex"
-        justify="center"
-      >
-        {menuItems.map((item, index) => (
-          <NavbarItem
-            key={index}
-            isActive={pathname === item.link ? true : false}
+        </Link>
+        <nav className="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto">
+          <Link
+            href="/"
+            className="mr-5 hover:text-gray-900"
           >
-            <Link
-              href={item.link}
-              aria-current="page"
-              className={
-                pathname === item.link ? 'text-emerald-500' : 'text-gray-600'
-              }
-            >
-              {item.label}
-            </Link>
-          </NavbarItem>
-        ))}
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem>
-          <Button
-            as={Link}
-            color="primary"
+            Home
+          </Link>
+          <Link
             href="/all-suras"
-            className="rounded-full bg-emerald-500"
+            className="mr-5 hover:text-gray-900"
           >
-            Suras
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={index}>
-            <Link
-              onClick={() => setIsMenuOpen(false)}
-              className={
-                pathname === item.link
-                  ? 'text-emerald-500 font-bold'
-                  : 'text-gray-600'
-              }
-              href={item.link}
-            >
-              {item.label}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </Navbar>
+            All Suras
+          </Link>
+        </nav>
+        <Link
+          href="/all-suras"
+          className="px-6 py-2 text-lg text-white rounded-full bg-emerald-500"
+        >
+          Suras
+        </Link>
+      </div>
+    </header>
   );
 }

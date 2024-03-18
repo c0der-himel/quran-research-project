@@ -1,5 +1,4 @@
 import { ListOfAllSurasResponse } from '@/types';
-import { Card } from '@nextui-org/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -32,35 +31,40 @@ export default async function ListOfAllSuras() {
             <Link
               href={`/single-sura/${chapter?.chapter}`}
               key={index}
-              className="w-full p-2 lg:w-1/3 md:w-1/2"
+              className="w-full p-3 xl:w-1/3 lg:w-1/2"
             >
-              <Card
-                isPressable
-                shadow="sm"
-                className="w-full h-full p-5"
-              >
-                <div className="flex">
-                  <Image
-                    alt="logo"
-                    className="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full"
-                    src={`${
-                      chapter?.revelation === 'Mecca'
-                        ? '/img/mecca.png'
-                        : '/img/madina.png'
-                    }`}
-                    width={64}
-                    height={64}
-                  />
+              <div className="flex items-center h-full p-4 border border-gray-200 shadow rounded-xl">
+                <Image
+                  alt="logo"
+                  className="flex-shrink-0 object-cover object-center w-12 h-12 mr-4 bg-gray-100 rounded-full"
+                  src={`${
+                    chapter?.revelation === 'Mecca'
+                      ? '/img/mecca.png'
+                      : '/img/madina.png'
+                  }`}
+                  width={40}
+                  height={40}
+                />
+                <div className="flex items-center justify-between w-full">
                   <div className="flex-grow">
-                    <h2 className="text-3xl text-gray-600">
+                    <h2 className="text-lg font-bold text-gray-800">
+                      {chapter?.name}
+                    </h2>
+                    <p className="text-sm font-medium text-gray-600">
+                      Chapter: {chapter?.chapter}, Ayahs:{' '}
+                      {chapter?.verses?.length}
+                    </p>
+                  </div>
+                  <div className="flex-grow">
+                    <h2 className="text-2xl text-right text-gray-900">
                       {chapter?.arabicname}
                     </h2>
-                    <p className="text-lg font-medium text-gray-600">
+                    <p className="text-base font-medium text-right text-gray-600">
                       {chapter?.englishname}
                     </p>
                   </div>
                 </div>
-              </Card>
+              </div>
             </Link>
           ))}
         </div>
