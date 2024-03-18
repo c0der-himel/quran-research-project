@@ -10,7 +10,7 @@ export default function Home() {
           </h1>
           <Link
             href="/all-suras"
-            className="px-6 py-3 text-lg text-white rounded-full bg-emerald-500"
+            className="px-6 py-3 text-lg text-white transition duration-300 rounded-full bg-emerald-500 hover:bg-emerald-600"
           >
             List Of All Suras
           </Link>

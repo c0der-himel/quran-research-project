@@ -25,29 +25,12 @@ export default async function SingleSura({
             {singleSura?.result?.map((ayah, index) => (
               <div
                 key={index}
-                className="flex flex-wrap py-8 text-right md:flex-nowrap"
+                className="mb-10"
               >
-                <div className="md:flex-grow">
-                  <h2 className="mb-2 text-3xl font-medium text-gray-600 title-font">
-                    {ayah?.arabic_text}
-                  </h2>
-                  <p className="text-lg">{ayah?.translation}</p>
-                  <a className="inline-flex items-center mt-4 text-emerald-500">
-                    Learn More
-                    <svg
-                      className="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M5 12h14" />
-                      <path d="M12 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                </div>
+                <h2 className="mb-2 text-3xl font-medium text-right text-gray-800 title-font">
+                  {ayah?.arabic_text}
+                </h2>
+                <p className="text-base text-right">{ayah?.translation}</p>
               </div>
             ))}
           </div>
