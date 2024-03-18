@@ -33,7 +33,7 @@ export default async function ListOfAllSuras() {
               key={index}
               className="w-full p-3 xl:w-1/3 lg:w-1/2"
             >
-              <div className="flex items-center h-full p-4 border border-gray-200 shadow rounded-xl">
+              <div className="flex items-center h-full p-4 transition duration-500 border border-gray-300 rounded-xl hover:border-gray-600">
                 <Image
                   alt="logo"
                   className="flex-shrink-0 object-cover object-center w-12 h-12 mr-4 bg-gray-100 rounded-full"
