@@ -29,8 +29,15 @@ export default async function ListOfAllSuras() {
         <div className="flex flex-wrap -m-2">
           {listOfAllSuras?.chapters?.map((chapter, index) => (
             <Link
-              href={`/single-sura/${chapter?.chapter}`}
               key={index}
+              href={{
+                pathname: `/single-sura/${chapter?.chapter}`,
+                query: {
+                  name: chapter?.arabicname,
+                  revelation: chapter?.revelation,
+                  verses: chapter?.verses?.length,
+                },
+              }}
               className="w-full p-3 xl:w-1/3 lg:w-1/2"
             >
               <div className="flex items-center h-full p-4 transition duration-500 border border-gray-300 rounded-xl hover:border-gray-600">
